@@ -1,7 +1,7 @@
 <template>
     <el-menu default-active="1-4-1" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
         <h3>通用后台管理系统</h3>
-        <el-menu-item v-for="item in noChildren" :index="item.path" :key="item.path">
+        <el-menu-item @click="clickMenu(item)" v-for="item in noChildren" :index="item.path" :key="item.path">
             <i :class="'el-icon-' + item.icon"></i>
             <span slot="title">{{item.label}}</span>
         </el-menu-item>
@@ -88,6 +88,11 @@
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+      clickMenu(item) {
+          this.$router.push({
+              name: item.name
+          })
       }
     },
     computed: {
