@@ -36,7 +36,6 @@
   export default {
     data() {
       return {
-        isCollapse: false,
         menu: [
             {
                 path: '/',
@@ -101,6 +100,9 @@
         },
         hasChildren() {
             return this.menu.filter(item => item.children)
+        },
+        isCollapse() {
+            return this.$store.state.tab.isCollapse
         }
     },
     // 控制台debug日志打印
