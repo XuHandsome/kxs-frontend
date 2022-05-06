@@ -1,6 +1,6 @@
 <template>
     <el-menu default-active="1-4-1" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-        <h3>通用后台管理系统</h3>
+        <h3>{{isCollapse ? '后台' : '通用后台管理系统'}}</h3> <!-- 判断isCollapse变量是否存在，存在则显示“后台”，否则显示“通用后台管理系统” ，语法严格按照这里写的-->
         <el-menu-item @click="clickMenu(item)" v-for="item in noChildren" :index="item.path" :key="item.path">
             <i :class="'el-icon-' + item.icon"></i>
             <span slot="title">{{item.label}}</span>
