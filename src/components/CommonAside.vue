@@ -5,13 +5,13 @@
             <i :class="'el-icon-' + item.icon"></i>
             <span slot="title">{{item.label}}</span>
         </el-menu-item>
-        <el-submenu v-for="item in hasChildren" :index="item.path" :key="item.path">
+        <el-submenu v-for="item in hasChildren" :index="item.label" :key="item.path">
             <template slot="title">
-            <i :class="'el-icon-' + item.icon"></i>
+                <i :class="'el-icon-' + item.icon"></i>
                 <span slot="title">{{ item.label }}</span>
             </template>
-            <el-menu-item-group v-for="(subItem, subIndex) in item.children" :key="subItem.path">
-                <el-menu-item :index="subIndex">{{subItem.label}}</el-menu-item>
+            <el-menu-item-group v-for="(subItem) in item.children" :key="subItem.path">
+                <el-menu-item :index="subItem.path">{{subItem.label}}</el-menu-item>
             </el-menu-item-group>
         </el-submenu>
     </el-menu>
@@ -102,6 +102,12 @@
         hasChildren() {
             return this.menu.filter(item => item.children)
         }
-    }
+    },
+    // 控制台debug日志打印
+    // mounted() {
+    //     console.log(this.menu.filter(item => !item.children));
+    //     console.log(this.menu.filter(item => item.children));
+
+    // }
   }
 </script>
