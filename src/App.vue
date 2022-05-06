@@ -17,6 +17,7 @@ html, body {
   padding: 0;
 }
 #app {
-  height: 100%;
+  /* 全局设置默认一屏高度 */
+  height: 100vh;
 }
 </style>
