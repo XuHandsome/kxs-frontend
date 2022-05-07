@@ -7,7 +7,7 @@ import './assets/less/index.less'
 
 import router from '../router'
 import store from '../store'
-
+import http from 'axios'
 
 Vue.config.productionTip = false
 Vue.use(Button)
@@ -28,6 +28,8 @@ Vue.use(Col)
 Vue.use(Card)
 Vue.use(Table)
 Vue.use(TableColumn)
+
+Vue.prototype.$http = http
 
 new Vue({
   store,
