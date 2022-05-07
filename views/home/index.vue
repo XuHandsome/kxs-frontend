@@ -46,7 +46,8 @@
     </el-row>
 </template>
 <script>
-import {getMenu} from '../../api/data.js'
+import {getData} from '../../api/data.js'
+
 export default {
     // eslint-disable-next-line vue/multi-word-component-names
     name: 'home',
@@ -138,7 +139,7 @@ export default {
         }
     },
     mounted () {
-        getMenu().then(res => {
+        getData().then(res => {
             console.log(res)
         })
     }
