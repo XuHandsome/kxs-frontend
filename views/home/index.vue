@@ -46,6 +46,7 @@
     </el-row>
 </template>
 <script>
+import {getMenu} from '../../api/data.js'
 export default {
     // eslint-disable-next-line vue/multi-word-component-names
     name: 'home',
@@ -137,13 +138,9 @@ export default {
         }
     },
     mounted () {
-        this.$http.get('/user?ID=12345')
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-        });
+        getMenu().then(res => {
+            console.log(res)
+        })
     }
 }
 </script>
